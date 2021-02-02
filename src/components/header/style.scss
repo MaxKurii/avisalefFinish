@@ -1,0 +1,56 @@
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.header{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background:  aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+// .logo{
+//   content: "";
+//   display: block;
+//   width: 200px;
+//   height: 123px;
+  
+//   background-size:cover ;
+//   background: url(../../img/fly-logo-6847AA295E-seeklogo.com.png) no-repeat;
+// }
+
+.logo{
+  position: absolute;
+  left: 20px;
+  width: 100px;
+  height: 70px;
+}
+
+.logo_img{
+  width: 100%;
+  height: 100%;
+  border-radius: 20%;
+}
+
+.nav{
+  display: flex;
+  position: absolute;
+  right: 20px;
+}
+
+.nav__item{
+  margin-left: 20px;
+}
+
+

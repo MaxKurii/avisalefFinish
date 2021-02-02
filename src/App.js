@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer } from 'react';
+import { BrowserRouter as Router, 
+  Route,
+  Redirect
+  } from "react-router-dom";
+import { Header } from './components/header';
+import { Main } from "./components/main";
+import { HomePage } from './pages/HomePage';
+import { initialState, StoreContext} from './store';
+
+import { useEffect } from "react";
+import { reducer } from "./store/reducer";
+
 
 function App() {
+
+  const [state, dispatch] = useReducer(reducer,initialState);
+  
+  useEffect(()=>{
+    // console.log('object');
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StoreContext.Provider value={{dispatch, state}}>
+      <Router>
+        <Header />
+        <Main />
+          <Redirect from="/" to="dashboard" />
+        <Route path="/dashboard" component={HomePage} />
+      </Router>
+    </StoreContext.Provider>
+    
   );
 }
 

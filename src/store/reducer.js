@@ -1,0 +1,7 @@
+function reducer(){
+
+};
+
+export{
+  reducer
+}
