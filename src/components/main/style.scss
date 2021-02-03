@@ -7,11 +7,11 @@
 }
 
 .wrapper__ticket{
-  display: none;
+  // display: none;
 }
 
 .block__ticket{
-  display: none;
+  // display: none;
 }
 
 .dropdown {
@@ -107,7 +107,7 @@ button {
   background-color: aqua;
 }
 
-calendar{
+input{
   display: block;
   min-width: 200px;
   max-width: 250px;
@@ -127,5 +127,118 @@ calendar{
   width: 100%;
   border-radius: inherit;
   color: inherit;
-  background-color: aqua;
+  background-color: rgb(40, 25, 177);
+}
+
+/* fdfdfd*/
+
+.left-side,
+.right-side {
+  padding: 20px;
+  width: 100%;
+}
+.left-side {
+  min-width: 270px;
+  width: 270px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.right-side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-left: 1px solid black;
+}
+.button__buy {
+  font-size: 16px;
+  max-width: 166px;
+  line-height: 1.25;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+.button__add {
+  margin: 50px auto 0;
+}
+.ticket {
+  width: 100%;
+  max-width: 730px;
+  margin: 30px auto;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  background-color: #1e3c53;
+}
+.ticket__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.agent {
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.block-left,
+.block-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.block-right {
+  text-align: right;
+}
+.city__name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.block__ticket {
+  margin: 50px 0;
+}
+@media (max-width: 768px) {
+  .ticket__wrapper {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .left-side {
+    width: 100%;
+  }
+}
+@media (max-width: 550px) {
+  .right-side {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .left-side {
+    min-width: 100%;
+  }
+  .block-right,
+  .block-left {
+    width: 100%;
+  }
+  .block-left {
+    margin-bottom: 20px;
+  }
 }

@@ -11,6 +11,7 @@ export const Input =({withDropDown,
     const [selectedData, setSelectedData] = useState([]);
 
     const handleOnChange = (event)=>{
+
       if(withDropDown){
         setValue(event.target.value)
         const filterCity = data.filter(item => {
@@ -46,19 +47,9 @@ export const Input =({withDropDown,
       {withDropDown && 
       <ul className="dropdown dropdown__cities-from">
         {value && selectedData.map(city=>{
-          return <li className='dropdown__city' key={city.id} onClick={()=>handleOnClick(city.name)}>{city.name}</li>
+          return <li className='dropdown__city' key={city.code} onClick={()=> handleOnClick(city.name)}>{city.name}</li>
         })}
       </ul>}
     </div>
   )
 }
-
-// export const Calendar = ()=>{
-  
-//   return(
-//     <input
-//       type='date'
-    
-//     /> 
-//   )
-// }

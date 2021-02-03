@@ -8,17 +8,11 @@ import { Main } from "./components/main";
 import { HomePage } from './pages/HomePage';
 import { initialState, StoreContext} from './store';
 
-import { useEffect } from "react";
 import { reducer } from "./store/reducer";
-
 
 function App() {
 
   const [state, dispatch] = useReducer(reducer,initialState);
-  
-  useEffect(()=>{
-    // console.log('object');
-  })
 
   return (
     <StoreContext.Provider value={{dispatch, state}}>
