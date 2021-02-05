@@ -20,11 +20,15 @@ export{
 
 async function getTickets({from, to, when}){
   const requestData =
-      `?depart_date=${when}&origin=${from}` +
-      `&destination=${to}&one_way=true` +
+      `?currency=usd&depart_date=${when}&origin=${from.code}` +
+      `&destination=${to.code}&one_way=true` +
       API_KEY;
-
-      const response = await axios.get(calendar + requestData)
-  return response.data;
+      try {
+        const response = await axios.get(calendar + requestData)
+        return response.data;
+      } catch (ex) {
+        return `<h3>К сожалениию на текущую дату билетов не нашлось!</h3`
+      }
+      
 }
 

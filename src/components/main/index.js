@@ -2,6 +2,7 @@ import "./style.scss";
 import { Input } from "../inputs"; 
 import { getCityes, getTickets } from "../../api/tickets";
 import { useCallback, useState, useEffect } from "react";
+import { TicketCard } from "../ticketsCard";
 
 
 function Main(){
@@ -10,7 +11,7 @@ function Main(){
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [date , setDate] = useState('');
-  const [prices , setPrices] = useState([])
+  const [prices , setPrices] = useState([]);
   
   const fetchData = useCallback(async () => {
     const response = await getCityes();
@@ -28,18 +29,16 @@ function Main(){
     const cityTo = data.filter((city) => city.name === to)[0];
 
     const formData = {
-      from: cityFrom.code,
-      to: cityTo.code,
+      from: cityFrom,
+      to: cityTo,
       when: date,
     }
-    // console.log(formData);
+
     const response = await getTickets(formData);
-    setPrices(response.current_depart_date_prices)
+    setPrices(response.best_prices.sort((a, b) => a.value - b.value))
+    
     console.log(response);
   }
-
-
-  
   
   return(
   <main>
@@ -87,13 +86,37 @@ function Main(){
       <section 
         className="wrapper__ticket" 
         id="cheapest-ticket" >
-        <h2>Самый дешевый билет на выбранную дату</h2>
+        <h2>Самые дешевые билеты на выбранную дату</h2>
+        {prices.filter((ticket)=> ticket.depart_date === date).map(price =>
+          {
+          return (
+          <TicketCard  
+            key={price.value}
+            {...price}
+            from={from} 
+            to={to}
+            />
+            )
+          })
+        }
       </section>
 
       <section 
         className="block__ticket" 
         id="other-cheap-tickets" >
         <h2>Самые дешевые билеты на другие даты</h2>
+        {prices.filter((ticket)=> ticket.depart_date !== date).filter((ticket, index)=> index < 10).map(price =>
+          {
+          return (
+          <TicketCard 
+            key={price.value}
+            {...price}
+            from={from} 
+            to={to}
+            />
+            )
+          })
+        }
       </section>
     </section>
   </main>

@@ -5,7 +5,7 @@ function HomePage(){
   const {state, dispatch}=useContext(StoreContext)
   return(
     <div>
-        Hello world
+        {/* Hello world */}
     </div>
   );
 };
