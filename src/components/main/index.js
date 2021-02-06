@@ -40,7 +40,7 @@ function Main(){
     const response = await getTickets(formData);
     console.log(response);
     if(!response.best_prices){
-      return 
+      return alert('К сожалению билетов на эту дату не нашлось')
     }
     setPrices(response.best_prices.sort((a, b) => a.value - b.value))
     
