@@ -27,7 +27,7 @@
 
 .dropdown {
   width: 100%;
-  background: rgb(133, 9, 9);
+  background: #9097A2;
   color: #000;
   max-height: 300px;
   overflow-x: hidden;
@@ -203,9 +203,7 @@ input{
   flex-direction: column;
   justify-content: space-between;
 }
-.block-right {
-  // text-align: right;
-}
+
 .city__name {
   font-size: 18px;
   font-weight: 600;
