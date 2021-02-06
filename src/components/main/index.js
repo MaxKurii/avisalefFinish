@@ -6,12 +6,15 @@ import { TicketCard } from "../ticketsCard";
 
 
 function Main(){
-
+  
   const [data, setData]= useState([]);
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [date , setDate] = useState('');
   const [prices , setPrices] = useState([]);
+  const [visible, setVisible]= useState(false);
+
+
   
   const fetchData = useCallback(async () => {
     const response = await getCityes();
@@ -35,9 +38,13 @@ function Main(){
     }
 
     const response = await getTickets(formData);
+    console.log(response);
+    if(!response.best_prices){
+      return 
+    }
     setPrices(response.best_prices.sort((a, b) => a.value - b.value))
     
-    console.log(response);
+    setVisible(true)
   }
   
   return(
@@ -73,18 +80,19 @@ function Main(){
 
         <div className="wrapper__button">
           <button 
-          type="submit" 
-          className="button button__search">
+            
+            
+            type="submit" 
+            className="button button__search">
             <span className="button__search-text">Найти билеты</span>
           </button>
         </div>
       </form>
     </section>
 
-
     <section className="wrapper">
       <section 
-        className="wrapper__ticket" 
+        className={!visible ? "wrapper__ticket" : "wrapper"}
         id="cheapest-ticket" >
         <h2>Самые дешевые билеты на выбранную дату</h2>
         {prices.filter((ticket)=> ticket.depart_date === date).map(price =>
@@ -98,11 +106,11 @@ function Main(){
             />
             )
           })
-        }
+        }    
       </section>
 
       <section 
-        className="block__ticket" 
+        className={!visible ? "block__ticket" : "wrapper"}
         id="other-cheap-tickets" >
         <h2>Самые дешевые билеты на другие даты</h2>
         {prices.filter((ticket)=> ticket.depart_date !== date).filter((ticket, index)=> index < 10).map(price =>
@@ -119,8 +127,9 @@ function Main(){
         }
       </section>
     </section>
-  </main>
-  )
+
+
+  </ main> )
 }
 
 export{

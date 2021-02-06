@@ -1,5 +1,14 @@
-
 const TicketCard = ({gate, from, to, value, depart_date, number_of_changes, destination, origin})=>{
+
+  const getDate = date => {
+    return new Date(date).toLocaleString('ru', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
 
   const getLinkAviasales = () => {
     let link = 'https://www.aviasales.ua/search/';
@@ -22,7 +31,9 @@ const TicketCard = ({gate, from, to, value, depart_date, number_of_changes, dest
   
     return link;
   };
+  
   return(
+    
   <div>
       <h3 className="agent">{gate}</h3>
         <div className="ticket__wrapper">
@@ -39,7 +50,7 @@ const TicketCard = ({gate, from, to, value, depart_date, number_of_changes, dest
           <div className="city__from">Вылет из города : 
             <span className="city__name">{from}</span>
           </div>
-        <div className="date">{depart_date}</div>
+        <div className="date">{getDate(depart_date)}</div>
         </div>
 
         <div className="block-right">
@@ -51,7 +62,9 @@ const TicketCard = ({gate, from, to, value, depart_date, number_of_changes, dest
       </div>
     </div>
   </div>
+  
   )
+  
 }
 export{
   TicketCard

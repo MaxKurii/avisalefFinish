@@ -1,17 +1,28 @@
+#cheapest-ticket{
+  border: 3px solid #9097A2;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+#other-cheap-tickets{
+  border: 3px solid #9097A2;
+  border-radius: 20px;
+}
+
 .input{
   display: block;
 } 
 
 .label_text{
-  color: aqua;
+  color: black;
 }
 
 .wrapper__ticket{
-  // display: none;
+  display: none;
 }
 
 .block__ticket{
-  // display: none;
+  display: none;
 }
 
 .dropdown {
@@ -58,6 +69,7 @@ button {
 
 .wrapper__button {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .button {
@@ -143,20 +155,13 @@ input{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .right-side {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   border-left: 1px solid black;
 }
@@ -180,35 +185,26 @@ input{
   max-width: 730px;
   margin: 30px auto;
   border-radius: 5px;
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
   background-color: #1e3c53;
 }
 .ticket__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .agent {
   padding: 5px;
   text-align: center;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid  #9097A2;
+  
 }
 .block-left,
 .block-right {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .block-right {
-  text-align: right;
+  // text-align: right;
 }
 .city__name {
   font-size: 18px;
@@ -219,7 +215,6 @@ input{
 }
 @media (max-width: 768px) {
   .ticket__wrapper {
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
   .left-side {
@@ -228,7 +223,6 @@ input{
 }
 @media (max-width: 550px) {
   .right-side {
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
   .left-side {
